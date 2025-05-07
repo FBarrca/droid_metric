@@ -1,0 +1,47 @@
+[build-system]
+requires = [
+    "setuptools>=65",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "droid_metric"
+version = "0.1.0"
+description = "Monocular SLAM system that fuses DROID‑SLAM with Metric3D for metrically‑scaled depth."
+readme = "readme.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+authors = [
+    { name = "Jianxff" }
+]
+keywords = ["slam", "droid", "metric3d", "depth", "computer-vision", "3d-reconstruction"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[project.optional-dependencies]
+# Extras for development and testing
+dev = [
+    "black",
+    "flake8",
+    "pytest"
+]
+
+[project.scripts]
+# Expose the CLI utilities defined in the repo so users can call them after install
+reconstruct = "reconstruct:main"
+depth = "depth:main"
+slam = "slam:main"
+mesh = "mesh:main"
+download-models = "download_models:download_models"
+download-dataset = "download_dataset:download_dataset"
+
+[tool.setuptools]
+# Include everything inside `modules` plus top‑level Python files.
+packages = ["modules"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+# Ship non‑Python assets such as config JSONs and Open3D render option.
+"modules.droid_core" = ["misc/*.json"]

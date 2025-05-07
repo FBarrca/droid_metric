@@ -21,3 +21,6 @@ mmcv
 timm
 html4vision
 plyfile
+
+git+https://github.com/FBarrca/lietorch@backup
+git+https://github.com/princeton-vl/DROID-SLAM
