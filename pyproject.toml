@@ -45,6 +45,3 @@ include-package-data = true
 [tool.setuptools.package-data]
 # Ship non‑Python assets such as config JSONs and Open3D render option.
 "modules.droid_core" = ["misc/*.json"]
-
-[tool.setuptools.packages.find]
-where = ["."]
