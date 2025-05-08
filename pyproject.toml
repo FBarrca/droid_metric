@@ -38,8 +38,16 @@ download-models = "download_models:download_models"
 download-dataset = "download_dataset:download_dataset"
 
 [tool.setuptools]
-# Include everything inside `modules` plus top‑level Python files.
-packages = ["modules"]
+packages = { find = { include = ["modules", "modules.*"] } }
+py-modules = [
+  "reconstruct",
+  "depth",
+  "slam",
+  "mesh",
+  "download_models",
+  "download_dataset"
+]
+
 include-package-data = true
 
 [tool.setuptools.package-data]
